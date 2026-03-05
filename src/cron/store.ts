@@ -88,13 +88,13 @@ export async function saveCronStore(
     try {
       const backupPath = `${storePath}.bak`;
       await fs.promises.copyFile(storePath, backupPath);
-      await fs.promises.chmod(backupPath, 0o600).catch(() => undefined);
+      void fs.promises.chmod(backupPath, 0o600).catch(() => undefined);
     } catch {
       // best-effort
     }
   }
   await renameWithRetry(tmp, storePath);
-  await fs.promises.chmod(storePath, 0o600).catch(() => undefined);
+  void fs.promises.chmod(storePath, 0o600).catch(() => undefined);
   serializedStoreCache.set(storePath, json);
 }
 
