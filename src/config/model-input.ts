@@ -3,6 +3,7 @@ import type { AgentModelConfig } from "./types.agents-shared.js";
 type AgentModelListLike = {
   primary?: string;
   fallbacks?: string[];
+  fallbacksFromModels?: boolean;
 };
 
 export function resolveAgentModelPrimaryValue(model?: AgentModelConfig): string | undefined {
@@ -22,6 +23,17 @@ export function resolveAgentModelFallbackValues(model?: AgentModelConfig): strin
     return [];
   }
   return Array.isArray(model.fallbacks) ? model.fallbacks : [];
+}
+
+export function hasAgentModelFallbacksField(model?: AgentModelConfig): boolean {
+  return Boolean(model && typeof model === "object" && Object.hasOwn(model, "fallbacks"));
+}
+
+export function resolveAgentModelFallbacksFromModelsValue(model?: AgentModelConfig): boolean {
+  if (!model || typeof model !== "object") {
+    return false;
+  }
+  return model.fallbacksFromModels === true;
 }
 
 export function toAgentModelListLike(model?: AgentModelConfig): AgentModelListLike | undefined {

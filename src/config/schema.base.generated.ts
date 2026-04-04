@@ -3021,6 +3021,9 @@ export const GENERATED_BASE_CONFIG_SCHEMA = {
                         description:
                           "Ordered fallback models (provider/model). Used when the primary model fails.",
                       },
+                      fallbacksFromModels: {
+                        type: "boolean",
+                      },
                     },
                     additionalProperties: false,
                   },
@@ -3047,6 +3050,9 @@ export const GENERATED_BASE_CONFIG_SCHEMA = {
                         },
                         title: "Image Model Fallbacks",
                         description: "Ordered fallback image models (provider/model).",
+                      },
+                      fallbacksFromModels: {
+                        type: "boolean",
                       },
                     },
                     additionalProperties: false,
@@ -3097,6 +3103,9 @@ export const GENERATED_BASE_CONFIG_SCHEMA = {
                           type: "string",
                         },
                       },
+                      fallbacksFromModels: {
+                        type: "boolean",
+                      },
                     },
                     additionalProperties: false,
                   },
@@ -3123,6 +3132,9 @@ export const GENERATED_BASE_CONFIG_SCHEMA = {
                         },
                         title: "PDF Model Fallbacks",
                         description: "Ordered fallback PDF models (provider/model).",
+                      },
+                      fallbacksFromModels: {
+                        type: "boolean",
                       },
                     },
                     additionalProperties: false,
@@ -4790,6 +4802,9 @@ export const GENERATED_BASE_CONFIG_SCHEMA = {
                               type: "string",
                             },
                           },
+                          fallbacksFromModels: {
+                            type: "boolean",
+                          },
                         },
                         additionalProperties: false,
                       },
@@ -5387,6 +5402,9 @@ export const GENERATED_BASE_CONFIG_SCHEMA = {
                           items: {
                             type: "string",
                           },
+                        },
+                        fallbacksFromModels: {
+                          type: "boolean",
                         },
                       },
                       additionalProperties: false,
@@ -24984,6 +25002,11 @@ export const GENERATED_BASE_CONFIG_SCHEMA = {
     "agents.defaults.model.fallbacks": {
       label: "Model Fallbacks",
       help: "Ordered fallback models (provider/model). Used when the primary model fails.",
+      tags: ["reliability", "models"],
+    },
+    "agents.defaults.model.fallbacksFromModels": {
+      label: "Fallbacks From Models",
+      help: "When true and explicit fallbacks are omitted, derive fallback candidates from agents.defaults.models in config order.",
       tags: ["reliability", "models"],
     },
     "agents.defaults.imageModel.primary": {

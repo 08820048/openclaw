@@ -19,6 +19,7 @@ export type AgentModelEntryConfig = {
 export type AgentModelListConfig = {
   primary?: string;
   fallbacks?: string[];
+  fallbacksFromModels?: boolean;
 };
 
 export type AgentContextPruningConfig = {

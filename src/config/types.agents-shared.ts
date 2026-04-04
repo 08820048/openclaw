@@ -12,6 +12,11 @@ export type AgentModelConfig =
       primary?: string;
       /** Per-agent model fallbacks (provider/model). */
       fallbacks?: string[];
+      /**
+       * When true and `fallbacks` is omitted, derive fallback candidates from
+       * `agents.defaults.models` in config order (excluding the configured primary).
+       */
+      fallbacksFromModels?: boolean;
     };
 
 export type AgentSandboxConfig = {
